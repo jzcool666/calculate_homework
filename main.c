@@ -9,39 +9,39 @@ int main()
     double result = 0;
     int check_first = 1;
 
-    printf("»¶Ó­Ê¹ÓÃ¼ÆËãÆ÷!\n");
-    printf("ÇëÊäÈë±í´ïÊ½(Èç: 1+1)£¬ÊäÈëexitÍË³ö£¬ÊäÈëacÇåÁã\n");
+    printf("æ¬¢è¿ä½¿ç”¨è®¡ç®—å™¨!\n");
+    printf("è¯·è¾“å…¥è¡¨è¾¾å¼(å¦‚: 1+1)ï¼Œè¾“å…¥exité€€å‡ºï¼Œè¾“å…¥acæ¸…é›¶\n");
 
     while (1) 
     {
         printf("-> ");
         fgets(input, sizeof(input), stdin);
 
-        // ÒÆ³ı»»ĞĞ·û
+        // ç§»é™¤æ¢è¡Œç¬¦
         input[strcspn(input, "\n")] = 0;
 
-        // ¼ì²éÍË³öÌõ¼ş
+        // æ£€æŸ¥é€€å‡ºæ¡ä»¶
         if (strcmp(input, "exit") == 0) 
         {
             break;
         }
 
-        // ¼ì²éÇåÁãÌõ¼ş
+        // æ£€æŸ¥æ¸…é›¶æ¡ä»¶
         if (strcmp(input, "ac") == 0) 
         {
             result = 0;
             check_first = 1;
-            printf("ÒÑÇåÁã\n");
+            printf("å·²æ¸…é›¶\n");
             continue;
         }
 
         double num1, num2;
         char operator;
 
-        // ½âÎöÊäÈëµÄ±í´ïÊ½
+        // è§£æè¾“å…¥çš„è¡¨è¾¾å¼
         if (check_first)
         {
-            if (sscanf(input, "%lf %c %lf", &num1, &operator, &num2) == 3)
+            if (scanf(input, "%lf %c %lf", &num1, &operator, &num2) == 3)
             {
                 result = calculate(num1, operator, num2);
                 printf("= %.2lf\n", result);
@@ -49,25 +49,25 @@ int main()
             }
             else 
             {
-                printf("ÊäÈë¸ñÊ½´íÎó£¡ÇëÊ¹ÓÃÕıÈ·¸ñÊ½£¬ÀıÈç£º5 + 3\n");
+                printf("è¾“å…¥æ ¼å¼é”™è¯¯ï¼è¯·ä½¿ç”¨æ­£ç¡®æ ¼å¼ï¼Œä¾‹å¦‚ï¼š5 + 3\n");
             }
         }
         else 
         {
-            // Ê¹ÓÃÉÏÒ»´Î½á¹û×÷ÎªµÚÒ»¸öÊı
-            if (sscanf(input, "%c %lf", &operator, &num2) == 2) 
+            // ä½¿ç”¨ä¸Šä¸€æ¬¡ç»“æœä½œä¸ºç¬¬ä¸€ä¸ªæ•°
+            if (scanf(input, "%c %lf", &operator, &num2) == 2) 
             {
                 result = calculate(result, operator, num2);
                 printf("= %.2lf\n", result);
             }
             else
             {
-                printf("ÊäÈë¸ñÊ½´íÎó£¡ÇëÊ¹ÓÃÕıÈ·¸ñÊ½£¬ÀıÈç£º+ 3\n");
+                printf("è¾“å…¥æ ¼å¼é”™è¯¯ï¼è¯·ä½¿ç”¨æ­£ç¡®æ ¼å¼ï¼Œä¾‹å¦‚ï¼š+ 3\n");
             }
         }
     }
 
-    printf("Ğ»Ğ»Ê¹ÓÃ¼ÆËãÆ÷!\n");
+    printf("è°¢è°¢ä½¿ç”¨è®¡ç®—å™¨!\n");
     return 0;
 }
 
@@ -85,14 +85,14 @@ double calculate(double num1, char operator, double num2)
     case '/':
         if (num2 == 0)
         {
-            printf("´íÎó£º³ıÊı²»ÄÜÎª0£¡\n");
+            printf("é”™è¯¯ï¼šé™¤æ•°ä¸èƒ½ä¸º0ï¼\n");
             return num1;
         }
         return num1 / num2;
     case '^':
         return pow(num1, num2);
     default:
-        printf("´íÎó£ºÎŞĞ§µÄÔËËã·û£¡\n");
+        printf("é”™è¯¯ï¼šæ— æ•ˆçš„è¿ç®—ç¬¦ï¼\n");
         return num1;
     }
 }
