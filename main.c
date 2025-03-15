@@ -55,7 +55,8 @@ int main()
         else 
         {
             // 使用上一次结果作为第一个数
-            if (sscanf(input, "%c %lf", &operator, &num2) == 2) {
+            if (sscanf(input, "%c %lf", &operator, &num2) == 2) 
+            {
                 result = calculate(result, operator, num2);
                 printf("= %.2lf\n", result);
             }
