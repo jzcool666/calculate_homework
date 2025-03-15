@@ -1,0 +1,1 @@
+scanf在vs上无法直接使用，在项目属性预处理处加上_CRT_SECURE_NO_WARNINGS即可
