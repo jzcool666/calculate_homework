@@ -6,7 +6,7 @@ double calculate(double num1, char operator, double num2);
 int main() 
 {
     char input[100];
-    double result = 0;
+    double result = 0; 
     int check_first = 1;
 
     printf("欢迎使用计算器!\n");
